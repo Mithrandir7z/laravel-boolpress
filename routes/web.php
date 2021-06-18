@@ -15,9 +15,15 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 //questa specifica route è accessibile solo se loggati. (specifico questo con il middleware).
-Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
+Route::get('/', 'HomeController@index')->middleware('auth')->name('home');
+
+Route::prefix('admin')
+    ->namespace('Admin')
+    ->name('admin.')
+    ->middleware('auth')
+
+    ->group(function () {
+
+        Route::get('/', 'HomeController@index')->name('home');
+    }); 
