@@ -18,6 +18,9 @@ Auth::routes();
 //questa specifica route è accessibile solo se loggati. (specifico questo con il middleware).
 Route::get('/', 'HomeController@index')->middleware('auth')->name('home');
 
+//Gestisce i post pubblici
+Route::get('/blog', 'PostController@index')->name('blog');
+
 Route::prefix('admin')
     ->namespace('Admin')
     ->name('admin.')
@@ -26,4 +29,6 @@ Route::prefix('admin')
     ->group(function () {
 
         Route::get('/', 'HomeController@index')->name('home');
+
+        Route::resource('posts', 'PostController');
     }); 
