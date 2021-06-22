@@ -14,7 +14,7 @@
 
                         <h5 class="card-title">{{$post->title}}</h5>
                         
-                        <a href="#" class="btn btn-primary">Vai al post</a>
+                        <a href="{{ route('blog-page', ['slug' => $post->slug ]) }}" class="btn btn-primary">Vai al post</a>
 
                         </div>
 
