@@ -15,7 +15,8 @@ class HomeController extends Controller
         $current_user = Auth::user();
         
         $data = [
-            'current_user' => $current_user
+            'current_user' => $current_user,
+            'current_user_info' => $current_user->userInfo
         ];
 
         return view('admin.home', $data);

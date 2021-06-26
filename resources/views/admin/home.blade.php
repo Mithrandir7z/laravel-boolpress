@@ -10,10 +10,13 @@
                 <h1>Ciao {{$current_user->name}}!</h1>
 
                 <h3>Info</h3>
-                <ul>
-                    <li>Numero di telefono: {{$current_user->userInfo->telephone}} </li>
-                    <li>Indirizzo: {{$current_user->userInfo->full_address}} </li>
-                </ul>
+
+                @if ($current_user_info)
+                    <ul>
+                        <li>Numero di telefono: {{$current_user_info->telephone}} </li>
+                        <li>Indirizzo: {{$current_user_info->full_address}} </li>
+                    </ul>
+                @endif
 
                 
 
