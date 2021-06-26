@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Category;
 
 class CategoriesTableSeeder extends Seeder
 {
@@ -19,8 +20,11 @@ class CategoriesTableSeeder extends Seeder
             'Dolci'
         ];
 
-        foreach ($categories as $category_name) {
-
+        foreach($categories as $category_name) {
+            $new_category = new Category();
+            $new_category->name = $category_name;
+            $new_category->slug = Str::slug($new_category->name, '-');
+            $new_category->save();
         }
     }
 }
