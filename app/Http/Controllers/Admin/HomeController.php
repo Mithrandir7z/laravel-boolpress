@@ -11,10 +11,13 @@ class HomeController extends Controller
 {
     public function index() {
 
-        // Rilascio dati dell'utente loggato
+        // Rilascio dati solo dell'utente loggato
         $current_user = Auth::user();
-        dd($current_user);
+        
+        $data = [
+            'current_user' => $current_user
+        ];
 
-        return view('admin.home');
+        return view('admin.home', $data);
     }
 }
