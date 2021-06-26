@@ -129,7 +129,7 @@ class PostController extends Controller
 
         $post = Post::findOrFail($id);
 
-        // Di default lo slug non dovrebbe essere cambiamo a meno che cambi il titolo del post
+        // Di default lo slug non dovrebbe essere cambiato a meno che cambi il titolo del post
         $modified_post_data['slug'] = $post->slug;
 
         // Se il titolo cambia allora ricalcolo lo slug
