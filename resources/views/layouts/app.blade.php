@@ -9,6 +9,9 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- cdn vue e axios -->
+    @yield('header-scripts')
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
