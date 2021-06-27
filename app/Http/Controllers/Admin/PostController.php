@@ -35,9 +35,11 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::all();
+        $tags = Tag::all();
 
         $data = [
-            'categories' => $categories
+            'categories' => $categories,
+            'tags' => $tags
         ];
 
         return view('admin.posts.create', $data);
@@ -82,6 +84,9 @@ class PostController extends Controller
         $new_post = new Post();
         $new_post->fill($new_post_data);
         $new_post->save();
+
+        $new_post->tags()->sync($new_post_data['tags']);
+
 
         return redirect()->route('admin.posts.show', ['post' => $new_post->id]);
     }
