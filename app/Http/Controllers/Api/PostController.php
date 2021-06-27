@@ -11,9 +11,24 @@ class PostController extends Controller
     public function index() {
         $posts = Post::all();
 
+        $posts_for_response = [];
+
+        foreach ($posts as $post) {
+
+            $posts_for_response[] = [
+                'id' => $post->id,
+                'title' => $post->title,
+                'content' => $post->content,
+                'category' => $post->category ?  $post->category->name : '',
+                'tags' => $post->tags->ToArray()
+            ];
+        }
+
         $result = [
-            'posts' => $posts,
+            'posts' => $posts_for_response,
             'success' => true
         ];
+
+        return response()->json($result);
     }
 }
