@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Post;
 
 class PostController extends Controller
@@ -26,7 +25,8 @@ class PostController extends Controller
         }
 
         $data = [
-            'post' => $post
+            'post' => $post,
+            'post_category' => $post->category
         ];
 
         return view('guest.posts.show', $data);
