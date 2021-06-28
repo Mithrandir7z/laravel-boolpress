@@ -8,6 +8,12 @@
 
         <h1>{{ $post->title }}</h1>
 
+        @if ($post->cover)
+            <div class="mt-2 mb-2">
+                <img src="{{ asset('/storage/' . $post->cover) }}" alt="">
+            </div>
+        @endif
+
         <div class="mt-2 mb-2"><strong>Slug:</strong> {{ $post->slug }}</div>
 
 
