@@ -28,6 +28,6 @@ class NewPostAdminNotification extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.new-post-admin-notification');
+        return $this->view('admin.emails.new-post-admin-notification');
     }
 }
